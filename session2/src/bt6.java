@@ -2,18 +2,44 @@ import java.util.Scanner;
 
 public class bt6 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhập số thứ tự của sách trong hệ thống: ");
-        int stt = sc.nextInt();
+        int max = -1;
+        int min = Integer.MAX_VALUE;
+        int tong = 0;
+        int demNgayMo = 0;
 
-        int shelf = (stt - 1) / 25 + 1;
-        int position = (stt - 1) % 25 + 1;
-        String area = shelf <= 10 ? "Khu Cận (Gần cửa)" : "Khu Viễn (Xa cửa)";
+        String[] ngay = {
+                "Thu 2", "Thu 3", "Thu 4",
+                "Thu 5", "Thu 6", "Thu 7", "Chu Nhat"
+        };
 
-        System.out.println("\n--- THÔNG TIN ĐỊNH VỊ ---");
-        System.out.println("Sách số: " + stt);
-        System.out.println("Địa chỉ: Kệ " + shelf + " - Vị trí " + position);
-        System.out.println("Phân khu: " + area);
+        for (int i = 0; i < 7; i++) {
+            System.out.print("Nhap luot muon ngay " + ngay[i] + ": ");
+            int luotMuon = sc.nextInt();
+
+            if (luotMuon == 0) {
+                continue;
+            }
+
+            if (luotMuon > max) {
+                max = luotMuon;
+            }
+
+            if (luotMuon < min) {
+                min = luotMuon;
+            }
+
+            tong += luotMuon;
+            demNgayMo++;
+        }
+
+        double trungBinh = (demNgayMo > 0) ? (double) tong / demNgayMo : 0;
+
+        System.out.println();
+        System.out.println("--- KET QUA THONG KE ---");
+        System.out.println("Luot muon cao nhat: " + max);
+        System.out.println("Luot muon thap nhat: " + min);
+        System.out.println("Trung binh luot muon/ngay: " + trungBinh);
     }
 }

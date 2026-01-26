@@ -4,23 +4,24 @@ public class bt2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhập số ngày chậm trễ: ");
-        int n = sc.nextInt();
+        System.out.print("Nhap ma khu vuc (A, B, C, D): ");
+        char code = sc.next().toUpperCase().charAt(0);
 
-        System.out.print("Nhập số lượng sách mượn: ");
-        int m = sc.nextInt();
-
-        double baseFine = n * m * 5000;
-        double finalFine = baseFine;
-
-        if (n > 7 && m >= 3) {
-            finalFine = baseFine * 1.2;
+        switch (code) {
+            case 'A':
+                System.out.println("Vi tri: Tang 1 - Sach Van hoc");
+                break;
+            case 'B':
+                System.out.println("Vi tri: Tang 2 - Sach Khoa hoc");
+                break;
+            case 'C':
+                System.out.println("Vi tri: Tang 3 - Sach Ngoai ngu");
+                break;
+            case 'D':
+                System.out.println("Vi tri: Tang 4 - Sach Tin hoc");
+                break;
+            default:
+                System.out.println("Loi: Ma khu vuc khong hop le!");
         }
-
-        boolean lockCard = finalFine > 50000;
-
-        System.out.println("Tiền phạt gốc: " + baseFine + " VND");
-        System.out.println("Tiền phạt sau điều chỉnh: " + finalFine + " VND");
-        System.out.println("Yêu cầu khóa thẻ: " + lockCard);
     }
 }

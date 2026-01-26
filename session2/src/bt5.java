@@ -2,21 +2,42 @@ import java.util.Scanner;
 
 public class bt5 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhập mã sách (4 chữ số): ");
-        int code = sc.nextInt();
+        int diemUyTin = 100;
+        int soNgayTre;
 
-        int thousands = code / 1000;
-        int hundreds = (code / 100) % 10;
-        int dozens = (code / 10) % 10;
-        int units = code % 10;
+        System.out.println("--- HE THONG DANH GIA DOC GIA ---");
+        System.out.println("(Nhap so ngay tre. Nhap 999 de ket thuc)");
 
-        int expectedCheckDigit = (thousands + hundreds + dozens) % 10;
-        boolean isValid = expectedCheckDigit == units;
+        while (true) {
+            System.out.print("So ngay tre cua lan nay: ");
+            soNgayTre = sc.nextInt();
 
-        System.out.println("Chữ số kiểm tra kỳ vọng: " + expectedCheckDigit);
-        System.out.print("Kết quả kiểm tra mã sách: ");
-        System.out.println(isValid ? "HỢP LỆ" : "SAI MÃ");
+            if (soNgayTre == 999) {
+                break;
+            }
+
+            if (soNgayTre <= 0) {
+                diemUyTin += 5;
+                System.out.println("-> Tra dung han: +5 diem.");
+            } else {
+                int truDiem = soNgayTre * 2;
+                diemUyTin -= truDiem;
+                System.out.println("-> Tra tre " + soNgayTre + " ngay: -" + truDiem + " diem.");
+            }
+
+            System.out.println();
+        }
+
+        System.out.println("Tong diem uy tin: " + diemUyTin);
+
+        if (diemUyTin > 120) {
+            System.out.println("Xep loai: DOC GIA THAN THIET");
+        } else if (diemUyTin >= 80) {
+            System.out.println("Xep loai: DOC GIA TIEU CHUAN");
+        } else {
+            System.out.println("Xep loai: DOC GIA CAN LUU Y");
+        }
     }
 }

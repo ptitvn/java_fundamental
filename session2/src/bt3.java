@@ -1,15 +1,25 @@
+import java.util.Scanner;
 public class bt3 {
     public static void main(String[] args) {
-        
-        String book1 = "Java Basic";
-        String book2 = "Python Intro";
 
-        System.out.println("Trước khi hoán đổi: Book1 = " + book1 + ", Book2 = " + book2);
+       Scanner sc = new Scanner(System.in);
 
-        String temp = book1;
-        book1 = book2;
-        book2 = temp;
+        final int PHAT_MOI_NGAY = 5000; 
+        int n;
+        int total = 0; 
 
-        System.out.println("Sau khi hoán đổi:  Book1 = " + book1 + ", Book2 = " + book2);
-    }
-}
+        System.out.print("Nhap so luong sach tra muon: ");
+        n = sc.nextInt();
+
+        for (int i = 1; i <= n; i++) {
+            System.out.print("Nhap so ngay tre cua cuon thu " + i + ": ");
+            int soNgayTre = sc.nextInt();
+
+            int tienPhatCuon = soNgayTre * PHAT_MOI_NGAY;
+
+            total += tienPhatCuon;
+        }
+
+        System.out.println("===> Tong tien phat: " + total + " VND");
+      }
+   }

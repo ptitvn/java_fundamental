@@ -2,18 +2,18 @@ import java.util.Scanner;
 
 public class bt4 {
     public static void main(String[] args) {
-         Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
+        int id;
 
-        System.out.print("Nhập giá sách (USD - kiểu double): ");
-        double priceUSD = sc.nextDouble();
+        do {
+            System.out.print("Nhap ma ID sach moi (phai > 0): ");
+            id = sc.nextInt();
 
-        System.out.print("Nhập tỷ giá (VND - kiểu float): ");
-        float exchangeRate = sc.nextFloat();
+            if (id <= 0) {
+                System.out.println("Loi: ID phai la so duong. Moi nhap lai!");
+            }
+        } while (id <= 0);
 
-        double totalVND = priceUSD * exchangeRate;
-        long roundedVND = (long) totalVND;
-
-        System.out.println("Giá chính xác (số thực): " + totalVND);
-        System.out.println("Giá làm tròn để thanh toán (long): " + roundedVND);
+        System.out.println("Xac nhan: Ma sach " + id + " da duoc ghi nhan.");
     }
 }
