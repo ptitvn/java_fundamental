@@ -5,14 +5,12 @@ public class BankAccount {
     private String ownerName;
     private double balance;
 
-    // ===== Constructor không tham số =====
     public BankAccount() {
         this.accountNumber = "Unknown";
         this.ownerName = "No Name";
         this.balance = 0;
     }
 
-    // ===== Constructor có tham số =====
     public BankAccount(String accountNumber, String ownerName, double balance) {
         this.accountNumber = accountNumber;
         this.ownerName = ownerName;

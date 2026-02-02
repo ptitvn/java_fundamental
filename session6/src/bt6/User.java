@@ -1,3 +1,4 @@
+package bt6;
 public class User {
 
     private int id;
